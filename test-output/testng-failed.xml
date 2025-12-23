@@ -5,9 +5,13 @@
     <classes>
       <class name="tests.DashboardSmokeTest">
         <methods>
+          <include name="dashboardSmokeTest_debug"/>
+          <include name="dashboardFileUploadSmokeTest"/>
           <include name="dashboardBadLiveUrlShowsWarning"/>
           <include name="tearDown"/>
+          <include name="dashboardEmptyFileUploadShowsWarning"/>
           <include name="setUp"/>
+          <include name="dashboardEmptyLiveUrlShowsWarning"/>
         </methods>
       </class> <!-- tests.DashboardSmokeTest -->
     </classes>
