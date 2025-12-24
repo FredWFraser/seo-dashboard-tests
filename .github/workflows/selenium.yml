@@ -1,0 +1,17 @@
+name: CI Smoke Test
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+jobs:
+  smoke-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Say hello
+        run: echo "GitHub Actions is working"
