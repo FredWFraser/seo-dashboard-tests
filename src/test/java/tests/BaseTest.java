@@ -24,12 +24,25 @@ public class BaseTest {
         
         // Configure Chrome options
         ChromeOptions options = new ChromeOptions();
+
         options.addArguments("--disable-notifications");
         options.addArguments("--disable-infobars");
         options.addArguments("--disable-extensions");
         options.addArguments("--remote-allow-origins=*");
 
+        /* IMPORTANT: required for GitHub Actions */
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
+
+        /* Headless ONLY in CI */
+        String ci = System.getenv("CI");
+        if (ci != null) {
+            options.addArguments("--headless=new");
+        }
+
         driver = new ChromeDriver(options);
+
+
 
         // ---- Add this to skip ngrok warning ----
         ChromeDriver chromeDriver = (ChromeDriver) driver;
